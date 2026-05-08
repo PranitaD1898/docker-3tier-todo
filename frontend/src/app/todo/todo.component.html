@@ -1,0 +1,35 @@
+<div class="todo-container">
+    <h1>📝 Todo App</h1>
+    <p class="subtitle">3-Tier Architecture Demo</p>
+  
+    <!-- Add Todo Form -->
+    <div class="add-todo">
+      <input 
+        type="text" 
+        [(ngModel)]="newTodo" 
+        placeholder="Enter a new todo..."
+        (keyup.enter)="addTodo()"
+        class="todo-input"
+      />
+      <button (click)="addTodo()" class="add-btn">Add</button>
+    </div>
+  
+    <!-- Todo List -->
+    <div class="todo-list">
+      <div *ngIf="todos.length === 0" class="empty-state">
+        <p>🎉 No todos yet! Add one above.</p>
+      </div>
+  
+      <div *ngFor="let todo of todos" class="todo-item">
+        <span class="todo-title">{{ todo.title }}</span>
+        <button (click)="deleteTodo(todo.id)" class="delete-btn">Delete</button>
+      </div>
+    </div>
+  
+    <!-- Architecture Info -->
+    <div class="architecture-info">
+      <p><strong>Frontend:</strong> Angular (Port 4200)</p>
+      <p><strong>Backend:</strong> Node.js (Port 5000)</p>
+      <p><strong>Database:</strong> In-Memory (for now)</p>
+    </div>
+  </div>
